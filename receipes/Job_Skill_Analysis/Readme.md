@@ -1,4 +1,7 @@
-# README: Job Skill Analysis for Job Seekers
+# Job Skill Analysis for Job Seekers
+
+- Author: Satya Phanindra Kumar Kalaga
+- Date: September 2025
 
 ## 📜 Narrative: What Skills Do I *Really* Need?
 

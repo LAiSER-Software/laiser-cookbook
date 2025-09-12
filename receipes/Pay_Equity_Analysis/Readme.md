@@ -1,4 +1,7 @@
-# README: Pay Equity Analysis Based on Skills
+# Pay Equity Analysis Based on Skills
+
+- Author: Satya Phanindra Kumar Kalaga
+- Date: September 2025
 
 ## 📜 Narrative: Are We Paying for Skills or Just Titles?
 

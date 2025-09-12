@@ -1,4 +1,7 @@
-# README: University Program Skill Analysis
+# University Program Skill Analysis
+
+- Author: Satya Phanindra Kumar Kalaga
+- Date: September 2025
 
 ## 📜 Narrative: What Skills Are We Teaching?
 
