@@ -80,4 +80,4 @@ This project is licensed under the terms specified in the [LICENSE](./LICENSE) f
 
 ## 🔗 Related Projects
 
-- [LAiSER Package](https://github.com/LAiSER-Software/laiser) - The core Python package powering these recipes
+- [LAiSER Package](https://pypi.org/project/laiser/) - The core Python package powering these recipes
