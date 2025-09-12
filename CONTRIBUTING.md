@@ -15,7 +15,7 @@ Thank you for your interest in contributing to the LAiSER Cookbook! This project
 1. **Fork the Repository**: Click the "Fork" button at the top right of this repository
 2. **Clone Your Fork**: 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/laiser-cookbook.git
+   git clone https://github.com/LAiSER-Software/laiser-cookbook.git
    cd laiser-cookbook
    ```
 3. **Create a Branch**: 
