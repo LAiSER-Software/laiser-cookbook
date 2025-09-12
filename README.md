@@ -1,6 +1,6 @@
 # 🍳 LAiSER Cookbook
 
-A collection of interactive Jupyter notebooks showcasing practical applications of the [LAiSER](https://github.com/LAiSER-Software/laiser) package for AI-powered skill analysis and extraction.
+A collection of interactive Jupyter notebooks showcasing practical applications of the [LAiSER](https://github.com/LAiSER-Software/extract-module) package for AI-powered skill analysis and extraction.
 
 ## 📖 About
 
