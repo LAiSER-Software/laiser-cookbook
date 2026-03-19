@@ -1,32 +1,60 @@
-# University Program Skill Analysis
+# University Program Skill Analysis with LAiSER
 
-- Author: Satya Phanindra Kumar Kalaga
-- Date: September 2025
+This project provides an automated workflow to extract and categorize professional skills from university program descriptions using the `laiser` library and Large Language Models (LLMs).
 
-## 📜 Narrative: What Skills Are We Teaching?
+## Table of Contents
 
-A university's leadership team—deans, department heads, and curriculum designers—faces a constant challenge: ensuring that their programs are relevant and aligned with industry demands. How can they get a quick, consistent, and high-level overview of the skills taught across dozens or even hundreds of different programs? Reading through every syllabus or program description manually is impractical and subjective.
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Key Features](#key-features)
+4. [Usage Workflow](#usage-workflow)
+5. [Sample Results](#sample-results)
 
-This notebook provides a solution for that team. It uses AI to read through program descriptions and extract a standardized list of skills. By visualizing this data, administrators can easily compare programs, identify overlaps, spot potential curriculum gaps, and ensure that what they *say* they are teaching aligns with the actual skills students are gaining. This data-driven approach is invaluable for strategic planning, program marketing, and accreditation reporting.
+## Overview
 
-## 📋 What to Know Before You Start
+The analysis focuses on bridging the gap between academic descriptions and standardized skill taxonomies (like ESCO or O*NET). It uses a refactored skill extraction engine to identify raw skills and align them with recognized professional definitions.
 
-Here are a few key points to understand before running this notebook.
+## Installation
 
-### 1. **API Credentials Required**
-The `laiser` package uses AI models from the Hugging Face Hub. To access these models, you will need to provide your credentials.
+To run this analysis, install the required dependencies:
 
-* **Hugging Face Account**: You'll need a free account on [Hugging Face](https://huggingface.co/join).
-* **Hugging Face Token**: Generate a User Access Token with `read` permissions from your account settings.
-* **Model ID**: Choose a model for the extraction, for example, `"mistralai/Mistral-7B-Instruct-v0.1"`.
+```bash
+pip install laiser pandas matplotlib seaborn torch
+```
 
-You will be asked to enter your `model_id` and `hf_token` in **Cell 7** of the notebook.
+## Key Features
 
-### 2. **Dependencies will be Installed**
-The notebook will automatically install all required Python libraries, including `laiser`, `pandas`, `matplotlib`, and `seaborn`, using a `!pip install` command in the first code cell. No manual installation is needed.
+- **Automated Extraction**: Uses LLMs (for example, Gemini) to parse natural language program descriptions.
+- **Skill Alignment**: Maps extracted terms to standardized taxonomies with correlation coefficients.
+- **Visualization**: Generates distribution plots of skills across different academic programs.
 
-### 3. **No Special Hardware Needed**
-This notebook is configured to run on a standard CPU. A GPU is not required, so you can run it on a personal laptop or a free cloud-based notebook service.
+## Usage Workflow
 
-### 4. **The Dataset is a Sample**
-For demonstration purposes, this notebook uses a small, manually created DataFrame to represent university program data. You can easily modify **Cell 9** to load your own data from a CSV file or another source. The `input_type` for the extractor is set to `'syllabus'`, which is suitable for academic texts like program descriptions.
+### 1. Initialization
+
+Configure `SkillExtractorRefactored` with your model ID and API key.
+
+### 2. Data Preparation
+
+Load program data into a pandas DataFrame containing at least an ID, name, and description.
+
+### 3. Extraction
+
+Run `extract_and_align` to generate a structured skill report.
+
+### 4. Visualization
+
+Merge results with original metadata to visualize skill density per program.
+
+## Sample Results
+
+Based on the current implementation, the system extracts the following:
+
+- **Computer Science**: software development, algorithms, data structures, and related skills.
+- **Data Science**: machine learning, statistical modeling, R, Python, and related skills.
+- **Mechanical Engineering**: thermodynamics, CAD software, robotics, and related skills.
+
+## Credits
+
+- Developed by Satya Phanindra Kumar Kalaga
+- Updated by Udit Chowdary Jasti

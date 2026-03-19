@@ -1,32 +1,84 @@
-# Pay Equity Analysis Based on Skills
+# Pay Equity Analysis Using Skill Extraction
 
-- Author: Satya Phanindra Kumar Kalaga
-- Date: September 2025
+## Project Overview
 
-## 📜 Narrative: Are We Paying for Skills or Just Titles?
+This project provides an HR analytics framework to analyze compensation data based on actual skills extracted from job descriptions. By moving beyond simple job titles, organizations can ensure pay equity by aligning salaries with the technical and soft skills required for each role.
 
-An HR analytics team is tasked with a critical mission: ensuring fair and equitable compensation across the company. Traditionally, salaries are tied to job titles, but this can lead to inconsistencies. A "Data Analyst" at one level might possess a more complex and in-demand skill set than a "Manager" in a different department, yet their compensation might not reflect that. How can the team move beyond titles to ensure people are paid fairly for the skills they bring to the table?
+## Table of Contents
 
-This notebook is their tool for investigation. It allows the team to extract the specific skills required for each role directly from job descriptions and map them against salary data. By visualizing the relationship between the *number* of required skills and compensation, they can spot anomalies at a glance. This data-driven approach helps identify potential pay equity issues, justify compensation strategies, and build a more transparent and fair pay structure for the entire organization.
+1. [Features](#features)
+2. [Prerequisites](#prerequisites)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Author](#author)
+6. [License](#license)
 
-## 📋 What to Know Before You Start
+## Features
 
-Here are the essential points to understand before running this notebook.
+- **Automated Skill Extraction**: Uses the `laiser` library and generative AI (Gemini) to identify skills within unstructured job descriptions.
+- **Taxonomy Alignment**: Maps extracted skills to standardized taxonomies like ESCO or O*NET.
+- **Compensation Analysis**: Correlates the number and complexity of required skills with current salary levels.
+- **Visualization**: Provides scatter plots to identify outliers where roles with similar skill sets have significant pay gaps.
 
-### 1. **API Credentials Required**
-The skill extraction process is powered by the `laiser` package, which uses AI models from the Hugging Face Hub. You will need your own credentials to use it.
+## Prerequisites
 
-* **Hugging Face Account**: You will need a free account on [Hugging Face](https://huggingface.co/join).
-* **Hugging Face Token**: You must generate a User Access Token with `read` permissions from your account settings.
-* **Model ID**: You need to specify a model for the extraction (e.g., `"mistralai/Mistral-7B-Instruct-v0.1"`).
+Before running the analysis, ensure you have the following:
 
-These credentials must be entered in the designated cell within the notebook.
+- Python 3.10+
+- A Hugging Face API Token (for model access)
+- A Gemini API Key (if using the Gemini model configuration)
 
-### 2. **Dependencies will be Installed**
-The notebook is self-contained and will install all the necessary Python libraries for you. The first code cell includes a `!pip install` command to download and set up `laiser`, `pandas`, `matplotlib`, and `seaborn`.
+## Installation
 
-### 3. **No Special Hardware Needed**
-This notebook is configured to run on a standard CPU. You do not need access to a GPU, making it easy to run on a personal computer or a standard cloud notebook environment.
+Install the required dependencies using pip:
 
-### 4. **Sample Data is Used**
-To make the notebook easy to run, it includes a small, sample dataset created directly in the code. This data represents a few job roles with descriptions and salaries. You can adapt the code in **Cell 9** to load your company's actual job and compensation data from a CSV file or other data source for a real-world analysis.
+```bash
+pip install laiser pandas matplotlib seaborn torch
+```
+
+## Usage
+
+### 1. Initialization
+
+Initialize the `SkillExtractorRefactored` with your API credentials:
+
+```python
+from laiser.skill_extractor_refactored import SkillExtractorRefactored
+
+se = SkillExtractorRefactored(model_id="gemini", api_key="YOUR_API_KEY")
+```
+
+### 2. Data Preparation
+
+Prepare a CSV file or pandas DataFrame containing:
+
+- `job_id`
+- `job_title`
+- `description`
+- `salary`
+
+### 3. Skill Extraction
+
+Run the alignment tool to extract skills:
+
+```python
+extracted_skills = se.extract_and_align(
+	job_data,
+	id_column="job_id",
+	text_columns=["description"],
+)
+```
+
+### 4. Visualization
+
+Analyze the results by plotting salary against the count of extracted skills to identify potential equity issues.
+
+## Author
+
+**Satya Phanindra Kumar Kalaga**  
+**Udit Chowdary Jasti
+Date: March 2026
+
+## License
+
+This project is for analytical purposes. Please ensure compliance with local data privacy and HR regulations regarding salary data.

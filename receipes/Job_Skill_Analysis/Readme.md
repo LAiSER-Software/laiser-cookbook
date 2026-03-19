@@ -1,33 +1,70 @@
-# Job Skill Analysis for Job Seekers
+# Job Skill Analysis with LAiSER
 
-- Author: Satya Phanindra Kumar Kalaga
-- Date: September 2025
+This project provides a workflow for extracting and visualizing in-demand professional skills from job descriptions using the `laiser` library and Large Language Models (LLMs).
 
-## 📜 Narrative: What Skills Do I *Really* Need?
+## Table of Contents
 
-Imagine you're a job seeker, scrolling through dozens of job postings for your dream role. Each description is a wall of text, and while you know you're qualified, it's hard to pinpoint the exact skills that employers are prioritizing. Are they looking for "Python" more than "Java"? Is "Tableau" more important than "SQL" for this role?
+1. [Installation](#installation)
+2. [Setup and Initialization](#setup-and-initialization)
+3. [Data Loading](#data-loading)
+4. [Skill Extraction](#skill-extraction)
+5. [Visualization](#visualization)
 
-This notebook is designed to answer those questions. It acts as your personal career analyst, helping you cut through the noise. By feeding it a list of job descriptions, you can automatically extract and visualize the most frequently mentioned skills. This gives you a clear, data-driven picture of what's in demand, allowing you to tailor your resume, prepare for interviews, and focus your learning on the skills that truly matter.
+## Installation
 
-## 📋 What to Know Before You Start
+To run this project, install the required dependencies:
 
-This notebook is designed to be straightforward, but here are a few things to keep in mind before you run the code.
+```bash
+pip install laiser pandas matplotlib wordcloud torch
+```
 
-### 1. **API Credentials Required**
-The core of this notebook relies on the `laiser` package, which uses powerful AI models from the Hugging Face Hub to extract skills. To use it, you will need to provide your credentials.
+## Setup and Initialization
 
-* **Hugging Face Account**: You'll need a free account on [Hugging Face](https://huggingface.co/join).
-* **Hugging Face Token**: You must generate a User Access Token with `read` permissions from your Hugging Face account settings.
-* **Model ID**: You need to choose a model to use for the extraction (e.g., `"mistralai/Mistral-7B-Instruct-v0.1"`).
+The project uses the `SkillExtractorRefactored` class. To initialize it, provide a model ID and the corresponding API key (for example, Gemini API).
 
-You will be prompted to enter your `model_id` and `hf_token` in a designated cell in the notebook.
+```python
+from laiser.skill_extractor_refactored import SkillExtractorRefactored
 
-### 2. **Dependencies will be Installed**
-The notebook is self-contained. The very first code cell uses a `!pip install` command to install all the necessary Python libraries, including `laiser`, `pandas`, and `wordcloud`. You do not need to install anything manually beforehand.
+model_id = "gemini"
+api_key = "YOUR_API_KEY"
 
-### 3. **No Special Hardware Needed**
-This notebook is configured to run in a standard CPU environment. You do not need a powerful GPU to follow this demonstration, making it accessible to run on most personal computers or free cloud services like Google Colab.
+se = SkillExtractorRefactored(model_id=model_id, api_key=api_key, use_gpu=False)
+```
 
-### 4. **The Dataset**
-The notebook uses a pre-selected sample dataset of job postings hosted on GitHub. This is for demonstration purposes. You can easily adapt the code to load your own dataset from a local CSV file or another URL.
+## Data Loading
+
+The extractor expects a pandas DataFrame containing job descriptions. You can use your own CSV file or load the sample dataset:
+
+```python
+import pandas as pd
+
+url = "https://raw.githubusercontent.com/LAiSER-Software/datasets/refs/heads/master/jobs-data/linkedin_jobs_sample_36rows.csv"
+job_postings = pd.read_csv(url)
+job_postings = job_postings[["description", "job_id"]].dropna()
+```
+
+## Skill Extraction
+
+Extract skills and align them to a standard format using `extract_and_align`:
+
+```python
+extracted_skills = se.extract_and_align(
+	job_postings,
+	id_column="job_id",
+	text_columns=["description"],
+	input_type="job_desc",
+)
+```
+
+## Visualization
+
+You can visualize the extracted skill landscape using:
+
+- **Bar Chart**: Shows the top 20 most frequent skills.
+- **Word Cloud**: Generates a cloud from raw extracted skills for a quick visual summary.
+
+## Credits
+
+- Created by Satya Phanindra Kumar Kalaga - September 2025
+- Updated by Udit Chowdary Jasti - March 2026
 
