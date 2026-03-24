@@ -15,7 +15,7 @@ The LAiSER Cookbook provides ready-to-run notebooks that demonstrate real-world 
 
 All notebooks are designed to run on standard CPU hardware and will automatically install required dependencies.
 
-## 📚 Available Recipes
+## 📚 Available Receipes
 
 ### 🔍 [Job Skill Analysis for Job Seekers](./receipes/Job_Skill_Analysis/)
 **Perfect for:** Job seekers, career counselors, recruitment consultants
