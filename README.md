@@ -15,9 +15,9 @@ The LAiSER Cookbook provides ready-to-run notebooks that demonstrate real-world 
 
 All notebooks are designed to run on standard CPU hardware and will automatically install required dependencies.
 
-## 📚 Available Receipes
+## 📚 Available Recipes
 
-### 🔍 [Job Skill Analysis for Job Seekers](./receipes/Job_Skill_Analysis/)
+### 🔍 [Job Skill Analysis for Job Seekers](./recipes/Job_Skill_Analysis/)
 **Perfect for:** Job seekers, career counselors, recruitment consultants
 
 Extract and visualize the most in-demand skills from job postings to help job seekers focus their learning and tailor their resumes effectively.
@@ -28,7 +28,7 @@ Extract and visualize the most in-demand skills from job postings to help job se
 - Word cloud generation for easy interpretation
 - Uses sample job posting dataset (easily adaptable to your own data)
 
-### 💰 [Pay Equity Analysis Based on Skills](./receipes/Pay_Equity_Analysis/)
+### 💰 [Pay Equity Analysis Based on Skills](./recipes/Pay_Equity_Analysis/)
 **Perfect for:** HR teams, compensation analysts, organizational leaders
 
 Analyze the relationship between required skills and compensation to identify potential pay equity issues and build fairer compensation structures.
@@ -39,7 +39,7 @@ Analyze the relationship between required skills and compensation to identify po
 - Identifies potential pay inequities beyond job titles
 - Sample HR dataset included for demonstration
 
-### 🎓 [University Program Skill Analysis](./receipes/University_Program_Skill_Analysis/)
+### 🎓 [University Program Skill Analysis](./recipes/University_Program_Skill_Analysis/)
 **Perfect for:** Academic administrators, curriculum designers, program evaluators
 
 Extract and compare skills taught across different university programs to ensure curriculum alignment with industry demands.
