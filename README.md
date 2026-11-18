@@ -50,6 +50,17 @@ Extract and compare skills taught across different university programs to ensure
 - Gap analysis capabilities
 - Optimized for academic text processing
 
+### 🔒 [Skill Extraction with a Local LLM (Ollama)](./recipes/Local_LLM_Skill_Extraction/)
+**Perfect for:** Teams working with private or regulated text, anyone without a cloud API key
+
+Run LAiSER's skill extraction and taxonomy alignment with a model served by Ollama on your own computer, so job descriptions and other text never leave your machine.
+
+**Key Features:**
+- Ollama backend via a small hook, with no cloud API key needed
+- Switch to Gemini or a CPU-only local model with one environment variable
+- Plain Python script; no notebook environment required
+- Sample job description and sample output included
+
 ## 📈 Recent Updates (Latest Changes)
 
 - **README Standardization**: Updated all recipe README files to use consistent formatting (removed "README:" prefix from titles)

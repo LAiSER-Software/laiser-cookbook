@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Local LLM Skill Extraction recipe: runs LAiSER through a local Ollama model (with Gemini and CPU-only fallbacks)
 - Comprehensive main README with detailed recipe descriptions and usage instructions
 - CONTRIBUTING.md with detailed contribution guidelines
 - SECURITY.md with security policies and best practices

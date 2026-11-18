@@ -1,0 +1,3 @@
+laiser==1.0.1
+pandas
+requests
